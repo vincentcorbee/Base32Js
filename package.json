@@ -1,6 +1,6 @@
 {
   "name": "@digitalbranch/base32js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Base 32 encoding and decoding for nodejs",
   "main": "index.js",
   "directories": {
