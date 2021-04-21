@@ -9,6 +9,8 @@ assert.equal(base32.base32Encode('foob'), 'MZXW6YQ=')
 assert.equal(base32.base32Encode('fooba'), 'MZXW6YTB')
 assert.equal(base32.base32Encode('foobar'), 'MZXW6YTBOI======')
 
+assert.equal(base32.base32Encode(Buffer.from('foobar')), 'MZXW6YTBOI======')
+
 assert.equal(base32.base32Decode(''), '')
 assert.equal(base32.base32Decode('MY======'), 'f')
 assert.equal(base32.base32Decode('MZXQ===='), 'fo')
@@ -16,6 +18,8 @@ assert.equal(base32.base32Decode('MZXW6==='), 'foo')
 assert.equal(base32.base32Decode('MZXW6YQ='), 'foob')
 assert.equal(base32.base32Decode('MZXW6YTB'), 'fooba')
 assert.equal(base32.base32Decode('MZXW6YTBOI======'), 'foobar')
+
+assert.equal(base32.base32Decode(Buffer.from('MZXW6YTBOI======')), 'foobar')
 
 assert.throws(() => base32.base32Decode('MZXW6YTBOI====='), {
   message: 'The string is not correctly encoded.',
